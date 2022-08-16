@@ -15,6 +15,7 @@
 #include <QApplication>
 #include <QDebug>
 #include <QLocale>
+#include <QScrollBar>
 #include <QTranslator>
 #include <QWidget>
 

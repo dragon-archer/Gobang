@@ -50,7 +50,7 @@ void Window::onBtnRestart() {
 		}
 	}
 	updateSteps();
-	ui->m_labelInfo->clear();
+	ui->m_info->clear();
 	gameContinue = true;
 }
 
@@ -106,9 +106,12 @@ void Window::updateSteps() {
 }
 
 void Window::addTextToInfo(const QString& text) {
-	QString oldText = ui->m_labelInfo->text();
+	QString oldText = ui->m_info->text();
 	if(!oldText.isEmpty()) {
 		oldText += '\n';
 	}
-	ui->m_labelInfo->setText(oldText + text);
+	ui->m_info->setText(oldText + text);
+	ui->m_scrollArea->setWidgetResizable(true); // Force the scroll area scroll to right place
+	auto scrollbar = ui->m_scrollArea->verticalScrollBar();
+	scrollbar->setValue(scrollbar->maximum());
 }

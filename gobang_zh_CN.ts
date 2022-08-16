@@ -19,7 +19,7 @@
         <translation>步数：</translation>
     </message>
     <message>
-        <location filename="window.ui" line="288"/>
+        <location filename="window.ui" line="255"/>
         <source>Undo</source>
         <translation>悔棋</translation>
     </message>
