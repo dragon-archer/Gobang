@@ -12,6 +12,9 @@
 
 #include "pch.h"
 
+using pos_t = std::pair<int, int>;
+constexpr pos_t INVALID_POS {-1, -1};
+
 inline Player opposite_player(Player you) {
 	switch(you) {
 	case P_NONE:
@@ -76,6 +79,7 @@ public: // Actions
 		m_size = _size;
 		m_board.clear();
 		m_board.resize(_size, std::vector<Player>(_size, P_NONE));
+		m_record.clear();
 	}
 
 	inline void reset() noexcept {
@@ -107,14 +111,14 @@ public: // Actions
 		return R_ERROR; // You should not lose on your move
 	}
 
-	bool revert() noexcept {
+	pos_t revert() noexcept {
 		if(m_record.empty()) {
-			return false;
+			return INVALID_POS;
 		}
 		auto [row, col, _] = m_record.back();
 		m_record.pop_back();
 		m_board[row][col] = P_NONE;
-		return true;
+		return {row, col};
 	}
 
 	Player winner() const noexcept {

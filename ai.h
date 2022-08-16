@@ -13,8 +13,6 @@
 #include "pch.h"
 #include "gobang.h"
 
-using pos_t = std::pair<int, int>;
-
 int	  ai_score_row(const std::vector<Player>& vec, Player role);
 int	  ai_score_board(const Gobang& game, Player role);
 pos_t ai_move(Gobang game, Player role);

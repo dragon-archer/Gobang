@@ -1,3 +1,11 @@
+/**
+ * @file      cui.cpp
+ * @brief     Main CUI file for gobang
+ * @version   0.1
+ * @author    dragon-archer
+ *
+ * @copyright Copyright (c) 2022
+ */
 #include "pch.h"
 #include "gobang.h"
 #include "ai.h"
@@ -45,7 +53,7 @@ int main() {
 			cin >> cnt;
 			cout << cnt << endl;
 			while(cnt--) {
-				if(!game.revert()) {
+				if(game.revert() == INVALID_POS) {
 					break;
 				} else {
 					player = opposite_player(player);
